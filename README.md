@@ -25,4 +25,8 @@ System to extract carplate number from image and manage the vehicle entry / exit
 2. POST /api/exit  Multipart: image(required), time(optional)
    
 **time is optional, default to current date time if not provided**
-   
+
+## Sample call from postman
+![Entry](https://github.com/user-attachments/assets/9fd90e84-9431-4b60-bddb-86e4160c6f9e)
+![Exit](https://github.com/user-attachments/assets/7ff3b1c9-40d9-49f8-8080-6f213e5fd779)
+
