@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  springboot:
+    build:
+      context: ./spring-boot-backend
+      dockerfile: Dockerfile
+    environment:
+      - DB_URL=${DB_URL}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "8080:8080"     
+    depends_on:
+      - fastapi          
+    networks:
+      - backend
+
+  fastapi:
+    build:
+      context: ./fast-api
+      dockerfile: Dockerfile
+    expose:
+      - "8000"           
+    environment:
+      - KMP_DUPLICATE_LIB_OK=TRUE
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
